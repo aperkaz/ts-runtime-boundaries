@@ -1,4 +1,7 @@
-import * as t from "io-ts";
+/**
+ * External types
+ */
+import * as t from 'io-ts';
 
 export type OpenWeatherResponse = t.TypeOf<typeof OpenWeatherResponseCodec>;
 export const OpenWeatherResponseCodec = t.type({
@@ -12,7 +15,7 @@ export const OpenWeatherResponseCodec = t.type({
       main: t.string,
       description: t.string,
       icon: t.string,
-    })
+    }),
   ),
   base: t.string,
   main: t.type({
@@ -38,11 +41,4 @@ export const OpenWeatherResponseCodec = t.type({
   id: t.number,
   name: t.string,
   cod: t.number,
-});
-
-export type Weather = t.TypeOf<typeof WeatherCodec>;
-export const WeatherCodec = t.type({
-  city: t.string,
-  country: t.string,
-  temperature: t.number,
 });

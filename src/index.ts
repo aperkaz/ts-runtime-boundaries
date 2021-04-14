@@ -1,4 +1,7 @@
+import weather from './api/weather';
+
 (async () => {
   await new Promise((r) => setTimeout(r, 1000));
-  console.log("ye");
+  const response = weather.getWeather();
+  console.log(response);
 })();
