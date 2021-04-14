@@ -1,4 +1,4 @@
-# ts-runtime-boundaries
+# 🧙‍♂️ ts-runtime-boundaries
 
 Perform runtime validations in TS, using [io-ts](https://github.com/gcanti/io-ts).
 

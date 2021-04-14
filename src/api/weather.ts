@@ -38,17 +38,17 @@ const OPEN_WEATHER_RESPONSE: OpenWeatherResponse = {
   cod: 200,
 };
 
-const API = (openWeatherResponse: any) => ({
+export const API = (openWeatherResponse: any) => ({
   getWeather: (): Weather => {
     // Decode API response, and validate
     const validated = OpenWeatherResponseCodec.decode(openWeatherResponse);
 
     if (isLeft(validated)) {
-      console.log(PathReporter.report(validated));
-      throw new Error('API breached the contract.');
+      throw new Error(
+        `API breached the contract:\n${PathReporter.report(validated)}`,
+      );
     }
-
-    // After validation, we know openWeatherResponse is of type OpenWeatherResponse
+    // After validation !isLeft(), we know openWeatherResponse is of type OpenWeatherResponse
 
     // Transform API response to internal representation
     return transformOpenWeatherToWeather(openWeatherResponse);
